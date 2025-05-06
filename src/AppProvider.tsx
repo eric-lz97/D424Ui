@@ -179,21 +179,21 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({
   const api: AppContextType["api"] = {
     fetchTaskLists: async () => {
       const response = await axios.get<TaskList[]>(
-        "/api/task-lists",
+        "https://tasks-app-4287.onrender.com/api/task-lists",
         jsonHeaders
       );
       dispatch({ type: FETCH_TASKLISTS, payload: response.data });
     },
     getTaskList: async (id: string) => {
       const response = await axios.get<TaskList>(
-        `/api/task-lists/${id}`,
+        `https://tasks-app-4287.onrender.com/api/task-lists/${id}`,
         jsonHeaders
       );
       dispatch({ type: GET_TASKLIST, payload: response.data });
     },
     createTaskList: async (taskList) => {
       const response = await axios.post<TaskList>(
-        "/api/task-lists",
+        "https://tasks-app-4287.onrender.com/api/task-lists",
         taskList,
         jsonHeaders
       );
@@ -201,7 +201,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({
     },
     getTask: async (taskListId: string, taskId: string) => {
       const response = await axios.get<Task>(
-        `/api/task-lists/${taskListId}/tasks/${taskId}`,
+        `https://tasks-app-4287.onrender.com/api/task-lists/${taskListId}/tasks/${taskId}`,
         jsonHeaders
       );
       dispatch({
@@ -211,19 +211,19 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({
     },
     updateTaskList: async (id, taskList) => {
       const response = await axios.put<TaskList>(
-        `/api/task-lists/${id}`,
+        `https://tasks-app-4287.onrender.com/api/task-lists/${id}`,
         taskList,
         jsonHeaders
       );
       dispatch({ type: UPDATE_TASKLIST, payload: response.data });
     },
     deleteTaskList: async (id) => {
-      await axios.delete(`/api/task-lists/${id}`, jsonHeaders);
+      await axios.delete(`https://tasks-app-4287.onrender.com/api/task-lists/${id}`, jsonHeaders);
       dispatch({ type: DELETE_TASKLIST, payload: id });
     },
     fetchTasks: async (taskListId) => {
       const response = await axios.get<Task[]>(
-        `/api/task-lists/${taskListId}/tasks`,
+        `https://tasks-app-4287.onrender.com/api/task-lists/${taskListId}/tasks`,
         jsonHeaders
       );
       dispatch({
@@ -233,7 +233,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({
     },
     createTask: async (taskListId, task) => {
       const response = await axios.post<Task>(
-        `/api/task-lists/${taskListId}/tasks`,
+        `https://tasks-app-4287.onrender.com/api/task-lists/${taskListId}/tasks`,
         task,
         jsonHeaders
       );
@@ -244,7 +244,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({
     },
     updateTask: async (taskListId, taskId, task) => {
       const response = await axios.put<Task>(
-        `/api/task-lists/${taskListId}/tasks/${taskId}`,
+        `https://tasks-app-4287.onrender.com/api/task-lists/${taskListId}/tasks/${taskId}`,
         task,
         jsonHeaders
       );
@@ -255,7 +255,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({
     },
     deleteTask: async (taskListId, taskId) => {
       await axios.delete(
-        `/api/task-lists/${taskListId}/tasks/${taskId}`,
+        `https://tasks-app-4287.onrender.com/api/task-lists/${taskListId}/tasks/${taskId}`,
         jsonHeaders
       );
       dispatch({ type: DELETE_TASK, payload: { taskListId, taskId } });
