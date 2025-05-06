@@ -9,8 +9,8 @@ const TaskListScreen: React.FC = () => {
 
   // Fetch task lists when the component mounts
   useEffect(() => {
-    if (null == state.taskLists) {
-      api.fetchTaskLists();
+    if (null == state?.taskLists) {
+      api?.fetchTaskLists();
     }
   }, [state]);
 
@@ -38,7 +38,7 @@ const TaskListScreen: React.FC = () => {
       >
         Create New Task List
       </Button>
-      {state.taskLists.map((list) => {
+      {state?.taskLists.map((list) => {
         return (
           <Card
             key={list.id}
