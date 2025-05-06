@@ -1,4 +1,17 @@
 {
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "jsx": "react-jsx",                  // ✅ Enables JSX
+    "esModuleInterop": true,             // ✅ Fixes React default import error
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "strict": true,
+    "noEmit": true,
+    "types": ["jest", "node"]
+    },
   "files": [],
   "references": [
     { "path": "./tsconfig.app.json" },
